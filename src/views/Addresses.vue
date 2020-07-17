@@ -57,7 +57,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  a {
+  a{
     text-decoration: none;
   }
 </style>
