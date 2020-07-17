@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-toolbar app>
-      <v-toolbar-side-icon @click="openSideMenu"></v-toolbar-side-icon>
+      <v-toolbar-side-icon v-show="$store.state.login_user" @click="openSideMenu"></v-toolbar-side-icon>
       <v-toolbar-title class="headline text-uppercase">
         <span>マイアドレス帳</span>
       </v-toolbar-title>
@@ -31,8 +31,11 @@ export default {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.setLoginUser(user)
+        this.fetchAddresses()
+        if (this.$router.currentRoute.name === 'home') this.$router.push({ name: 'addresses' })
       } else {
         this.deleteLoginUser()
+        this.$router.push({ name: 'home' })
       }
     })
   },
@@ -45,7 +48,7 @@ export default {
     openSideMenu () {
       this.$store.dispatch('toggleSideMenu')
     },
-    ...mapActions(['toggleSideMenu', 'setLoginUser', 'logout', 'deleteLoginUser'])
+    ...mapActions(['toggleSideMenu', 'setLoginUser', 'logout', 'deleteLoginUser', 'fetchAddresses'])
   }
 }
 </script>

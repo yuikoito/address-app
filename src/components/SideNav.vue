@@ -36,8 +36,7 @@ export default {
   data () {
     return {
       items: [
-        { title: 'ホーム', icon: 'home', link: { name: 'home' } },
-        { title: '連絡先一覧', icon: 'reorder', link: { name: 'addresses' } }
+        { title: 'ホーム', icon: 'home', link: { name: 'home' } }
       ]
     }
   },
