@@ -33,11 +33,11 @@ export default {
   },
   methods: {
       submit () {
-        this.addAdress(this.address)
+        this.addAddress(this.address)
         this.$router.push({ name: 'addresses'})
         this.address = {}
       },
-      ...mapActions(['addAdress'])
+      ...mapActions(['addAddress'])
   }
 }
 </script>
