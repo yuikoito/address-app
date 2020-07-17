@@ -27,6 +27,9 @@
                   <v-icon small class="mr-2">edit</v-icon>
                 </router-link>
               </span>
+              <span>
+                <v-icon small class="mr-2" @click="deleteConfirm(props.item.id)">delete</v-icon>
+              </span>
             </td>
           </template>
         </v-data-table>
@@ -55,6 +58,11 @@ export default {
     }
   },
   methods: {
+    deleteConfirm (id) {
+      if (confirm ('削除してよろしいですか？')) {
+        this.deleteAddress({ id })
+      }
+    },
     ...mapActions(['deleteAddress'])
   }
 }
