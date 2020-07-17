@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   created () {
     this.addresses = this.$store.state.addresses
@@ -52,6 +53,9 @@ export default {
       ],
       addresses: []
     }
+  },
+  methods: {
+    ...mapActions(['deleteAddress'])
   }
 }
 </script>
